@@ -1,0 +1,341 @@
+@import url("https://fonts.cdnfonts.com/css/dm-sans");
+
+/* Global Styles */
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 80vh;
+  max-width: 1400px;
+  margin: 40px auto; 
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Column Layouts */
+.left-column,
+.middle-column,
+.right-column {
+  padding: 20px;
+}
+
+.left-column {
+  width: 35%;
+}
+
+.middle-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle-column p {
+  text-align: center;
+  margin: 10px;
+}
+
+.right-column {
+  width: 15%; 
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
+/* Headings */
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+select[multiple] {
+  height: 150px;
+}
+
+/* Buttons */
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create {
+  width: 40%;
+  background-color: #007bff;
+}
+
+.create:hover {
+  background-color: #0069d9;
+}
+
+.modify {
+  width: 40%;
+  background-color: #ffc107;
+}
+
+.modify:hover {
+  background-color: #e0a800;
+}
+
+.evaluate {
+  width: 100%;
+  background-color: #28a745;
+}
+
+.evaluate:hover {
+  background-color: #218838;
+}
+
+.add-function {
+  width: 100%;
+  background-color: #6f42c1;
+}
+
+.add-function:hover {
+  background-color: #5936a2;
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  max-width: 300px;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notification.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.notification.message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+  margin-left: 15px;
+  line-height: 1;
+}
+
+/* AST Visualization Styles */
+.tree-container {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.rd3t-link {
+  stroke: #ffffff;
+}
+
+.rd3t-label__title {
+  fill: #1b2941;
+}
+
+.rd3t-label__attributes {
+  fill: #4a5568;
+}
+
+.react-d3-tree__node__foreignObject {
+  pointer-events: none;
+}
+
+/* Right Column Layout */
+.right-column {
+  width: 25%; 
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  gap: 20px; 
+}
+
+/* Combine Rules and Existing Rules Sections */
+.combine-rules-section,
+.existing-rules-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+/* Rule List Container */
+.rule-list-container {
+  flex: 1;
+  overflow-y: auto; 
+  padding-right: 5px;
+}
+
+/* Rule List Styling */
+.rule-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rule-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.rule-list li:hover {
+  background-color: #f7fafc;
+}
+
+.rule-name {
+  color: #4a5568;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.rule-list li:hover .rule-name {
+  color: #2b6cb0;
+}
+
+.delete-rule {
+  background-color: #feb2b2;
+  color: #c53030;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-rule:hover {
+  background-color: #fc8181;
+  transform: scale(1.05);
+}
+
+/* Combine Button Styles */
+.combine-button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.combine {
+  width: 100%;
+  background-color: #17a2b8;
+}
+
+.combine:hover {
+  background-color: #138496;
+}
+
+/* Scrollbar Styles for WebKit Browsers */
+.rule-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rule-list-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.rule-list-container::-webkit-scrollbar-thumb {
+  background: #a0aec0;
+  border-radius: 4px;
+}
+
+.rule-list-container::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-container {
+    max-width: 1000px;
+  }
+
+  .tree-container {
+    height: 500px;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .left-column,
+  .middle-column,
+  .right-column {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .tree-container {
+    height: 400px;
+  }
+}
