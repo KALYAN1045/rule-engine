@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./RuleForm.css";
 import axios from "axios";
 import Tree from "react-d3-tree";
-import { FaTrash, FaPlus } from "react-icons/fa"; 
+import { FaTrash } from "react-icons/fa"; 
 
 const RuleForm = () => {
   const [ruleName, setRuleName] = useState("");
