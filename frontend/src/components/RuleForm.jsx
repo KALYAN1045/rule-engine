@@ -38,7 +38,7 @@ const RuleForm = () => {
 
   const fetchRules = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/rules");
+      const response = await axios.get(`${process.env.REACT_APP_API}/api/rules`);
       setRules(response.data);
     } catch {
       setError("Failed to fetch rules");
@@ -51,7 +51,7 @@ const RuleForm = () => {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/rules/create", {
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/rules/create`, {
         ruleName,
         ruleString,
       });
@@ -77,7 +77,7 @@ const RuleForm = () => {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/rules/modify", {
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/rules/modify`, {
         ruleName,
         ruleString,
       });
@@ -112,7 +112,7 @@ const RuleForm = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/rules/evaluateAll",
+        `${process.env.REACT_APP_API}/api/rules/evaluateAll`,
         {
           userData: {
             age: Number(age),
@@ -140,7 +140,7 @@ const RuleForm = () => {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/rules/combine", {
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/rules/combine`, {
         ruleNames: selectedRules,
       });
       setMessage("Rules combined successfully");
@@ -169,7 +169,7 @@ const RuleForm = () => {
       return;
     }
     try {
-      await axios.delete(`http://localhost:5000/api/rules/${ruleNameToDelete}`);
+      await axios.delete(`${process.env.REACT_APP_API}/api/rules/${ruleNameToDelete}`);
       setMessage("Rule deleted successfully");
       fetchRules();
       if (astData && astData.name === ruleNameToDelete) {
@@ -406,7 +406,7 @@ const RuleForm = () => {
                     className="rule-name"
                     onClick={() => {
                       axios
-                        .get(`http://localhost:5000/api/rules/${rule.ruleName}`)
+                        .get(`${process.env.REACT_APP_API}/api/rules/${rule.ruleName}`)
                         .then((res) => {
                           console.log("API Response:", res.data); 
                           if (res.data && res.data.ast) {
